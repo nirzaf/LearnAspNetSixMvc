@@ -1,0 +1,41 @@
+﻿@*inject the ienumable department*@
+
+@model IEnumerable<LearnAspNetCoreMvc.Models.Department>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Department List</h1>
+@*I will copy the table from boolstrap website*@
+
+@*I need to check the data available or not*@
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Department Id</th>
+                <th scope="col">Department Name</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var department in Model)
+            {
+                <tr>
+                    <td>@department.DepartmentId</td>
+                    <td>@department.DepartmentName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h3>No department found</h3>
+}
+
+
+
+
